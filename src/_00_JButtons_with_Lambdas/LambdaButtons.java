@@ -1,9 +1,12 @@
 package _00_JButtons_with_Lambdas;
 
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class LambdaButtons {
 	private JFrame window = new JFrame();
@@ -14,6 +17,21 @@ public class LambdaButtons {
 	public LambdaButtons() {
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setLayout(new FlowLayout());
+		addNumbers.addActionListener((e)->{
+			String s = JOptionPane.showInputDialog("Choose an integer");
+			int i = Integer.parseInt(s);
+			String s2 = JOptionPane.showInputDialog("Choose another integer!");
+			int i2 = Integer.parseInt(s2);
+			System.out.println(i+i2);
+		});
+		tellAJoke.addActionListener((e)->{
+			System.out.println("Why did the chicken NOT cross the road");
+			System.out.println("Cuz Colonel Sanders was on the other side");
+		});
+		randNumber.addActionListener((e)->{
+			int i = new Random().nextInt();
+			System.out.println(i);
+		});
 		window.add(addNumbers);
 		window.add(randNumber);
 		window.add(tellAJoke);
